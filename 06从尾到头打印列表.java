@@ -1,0 +1,54 @@
+// java之ArrayList，ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。它继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。
+
+//递归法
+/**
+*    public class ListNode {
+*        int val;
+*        ListNode next = null;
+*
+*        ListNode(int val) {
+*            this.val = val;
+*        }
+*    }
+*
+*/
+import java.util.ArrayList;
+public class Solution {
+    ArrayList<Integer> arrayList = new ArrayList<Integer>();
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        if(listNode != null){
+            this.printListFromTailToHead(listNode.next);
+            arrayList.add(listNode.val);
+        }
+        return arrayList;
+    }
+}
+//栈方法
+/**
+*    public class ListNode {
+*        int val;
+*        ListNode next = null;
+*
+*        ListNode(int val) {
+*            this.val = val;
+*        }
+*    }
+*
+*/
+import java.util.ArrayList;
+import java.util.Stack;
+public class Solution {
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+        Stack<Integer> temp = new Stack<Integer>();
+        //ListNode node = listNode.head;
+        while(listNode!=null){
+            temp.push(listNode.val);
+            listNode=listNode.next;
+        }
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        while(!temp.empty()){
+            arrayList.add(temp.pop());
+        }
+        return arrayList;
+    }
+}
