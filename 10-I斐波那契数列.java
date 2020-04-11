@@ -1,0 +1,53 @@
+//1. 最直接递归，递归过深，可能造成栈溢出,而且存在重复计算
+public class Solution {
+    public int Fibonacci(int n) {
+        if(n<=1){
+            return n;
+        }
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+
+    }
+}
+//2. 自底向上，解决重复计算
+public class Solution {
+    public int Fibonacci(int n){
+        if(n<=1){
+            return n;
+        }
+        int[] cache = new int[n+1];
+        cache[0] = 0;
+        cache[1] = 1;
+        for(int i = 2; i <= n; i++){
+            cache[i] = cache[i-1] + cache[i-2];
+        }
+        return cache[n];
+    }
+}
+//3.维护三个临时变量
+public class Solution {
+    public int Fibonacci(int n){
+        if(n <= 1){
+            return n;
+        }
+        if(n == 2){
+            return 1;
+        }
+        int current = 0, prev = 1, prevP = 1;
+        for(int i = 3; i <=n; i++){
+            current = prev + prevP;
+            prevP = prev;
+            prev = current;
+        }
+        return current;
+}
+}
+//4. 等比数列求通项公式
+
+public class Solution {
+    public int Fibonacci(int n) {
+        return (int)Math.round((Math.pow((1 + Math.sqrt(5))/2, n)-Math.pow((1 - Math.sqrt(5))/2, n))/Math.sqrt(5));       
+
+    }
+}
+//5. 矩阵，比较长，先不写了
+//6. 动态规划
