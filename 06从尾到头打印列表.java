@@ -1,5 +1,8 @@
-// java之ArrayList，ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。它继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。
-
+### 题目描述
+输入一个链表，按链表从尾到头的顺序返回一个ArrayList。
+### 解答
+java之ArrayList，ArrayList 是一个数组队列，相当于 动态数组。与Java中的数组相比，它的容量能动态增长。它继承于AbstractList，实现了List, RandomAccess, Cloneable, java.io.Serializable这些接口。
+```java
 //递归法
 /**
 *    public class ListNode {
@@ -52,3 +55,4 @@ public class Solution {
         return arrayList;
     }
 }
+```
